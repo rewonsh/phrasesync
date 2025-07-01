@@ -1,13 +1,12 @@
 # Meet with PhraseSync
 
-A smart, customizable phrase and translation matching module for Node.js. Add your own bilingual data and get instant predictions or translations between languages. Perfect for custom glossaries, parallel texts, and domain-specific vocabularies.
+A simple, online translation module for Node.js. Instantly translate text between languages using the LibreTranslate API.
 
 ## Features
-- Add your own sentence/word pairs for any language
-- Predict/translate words or phrases between languages
-- Fuzzy matching with Levenshtein distance
-- Supports custom similarity options (input/output)
-- No external API required, works fully offline
+- Translate text between 20+ languages
+- Uses LibreTranslate API (no API key required for public instance)
+- No need to add or manage your own data
+- Simple async API
 
 ## Installation
 
@@ -20,51 +19,30 @@ npm install phrasesync
 ```js
 const phrasesync = require('phrasesync');
 
-// Add parallel data for each language
-phrasesync.add('en', [
-  'In the beginning God created the heaven and the earth.',
-  'God',
-  // ...
-]);
-phrasesync.add('pt', [
-  'No princípio criou Deus os céus e a terra.',
-  'Deus',
-  // ...
-]);
-phrasesync.add('ko', [
-  '태초에 하나님이 천지를 창조하시니라',
-  '하나님이',
-  // ...
-]);
-phrasesync.add('ja', [
-  'はじめに神は天と地とを創造された。',
-  '神',
-  // ...
-]);
+// Translate text from English to Turkish
+phrasesync.translate('Hello, how are you?', 'en', 'tr').then(console.log); // "Merhaba, nasılsın?"
 
-// Predict/translate single or multiple words/phrases
-console.log(phrasesync.predict(['God'], 'en', 'pt')); // ['Deus']
-console.log(phrasesync.predict(['God'], 'en', 'ko', { similarity: 'output' })); // ['하나님이']
-console.log(phrasesync.predict(['God'], 'en', 'ja')); // ['神']
-console.log(phrasesync.predict(['하나님이'], 'ko', 'en', { similarity: 'input' })); // ['God']
+// Auto-detect source language
+phrasesync.translate('Guten Morgen!', undefined, 'en').then(console.log); // "Good morning!"
+
+// List supported languages
+phrasesync.getSupportedLanguages().then(console.log);
 ```
 
 ## API
 
-### `phrasesync.add(lang, array)`
-- `lang` _(string)_: Language code (e.g., 'en', 'pt', 'ko', 'ja')
-- `array` _(string[])_: Array of sentences/words for that language. The order must match across languages.
+### `phrasesync.translate(text, from, to)`
+- `text` _(string)_: Text to translate
+- `from` _(string, optional)_: Source language code (e.g., 'en', 'tr', 'de', or 'auto')
+- `to` _(string)_: Target language code (e.g., 'en', 'tr', 'de')
+- **Returns:** `Promise<string>` translated text
 
-### `phrasesync.predict(inputArray, from, to, options)`
-- `inputArray` _(string[])_: Array of words/phrases to translate or match
-- `from` _(string)_: Source language code
-- `to` _(string)_: Target language code
-- `options.similarity` _(string, optional)_: 'output' (default) or 'input'. Determines which language to use for fuzzy matching.
-- **Returns:** Array of predicted/matched words or phrases in the target language
+### `phrasesync.getSupportedLanguages()`
+- **Returns:** `Promise<Array<{code: string, name: string}>>` Supported languages
 
 ## License
 MIT
 
 ---
 
-> PhraseSync is not affiliated with LibreTranslate.
+> PhraseSync uses the LibreTranslate API (https://libretranslate.com/).

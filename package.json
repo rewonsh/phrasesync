@@ -1,23 +1,41 @@
 {
   "name": "phrasesync",
-  "version": "1.0.0",
-  "description": "A free and easy-to-use Node.js translation module that supports many languages. Powered by LibreTranslate.",
+  "version": "1.0.1",
+  "description": "A smart, customizable phrase and translation matching module for Node.js. Add your own bilingual data and get instant predictions or translations between languages.",
   "main": "index.js",
   "keywords": [
-    "translate",
+    "phrase",
     "translation",
-    "languages",
-    "libretranslate",
+    "matching",
+    "bilingual",
     "nodejs",
     "multilingual",
-    "api",
-    "free"
+    "fuzzy",
+    "offline",
+    "libretranslate",
+    "translate",
+    "phrasesync",
+    "phrasesync-nodejs",
+    "phrasesync-node",
+    "phrasesync-node-js",
+    "phrasesync-node-js-module",
+    "phrasesync-node-js-package",
+    "phrasesync-node-js-library",
+    "phrasesync-node-js-module",
+    "phrasesync-node-js-package",
+    "phrasesync-node-js-library",
+    "phrasesync-node-js-module",
+    "phrasesync-node-js-package",
+    "phrasesync-node-js-library",
+    "phrasesync-node-js-module",
+    "phrasesync-node-js-package",
+    "phrasesync-node-js-library"
   ],
   "author": "rewonsh",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rewonsh/phrasesync.git"
+    "url": "https://github.com/rewonsh/phrasesync"
   },
   "bugs": {
     "url": "https://github.com/rewonsh/phrasesync/issues"
