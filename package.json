@@ -1,0 +1,29 @@
+{
+  "name": "phrasesync",
+  "version": "1.0.0",
+  "description": "A free and easy-to-use Node.js translation module that supports many languages. Powered by LibreTranslate.",
+  "main": "index.js",
+  "keywords": [
+    "translate",
+    "translation",
+    "languages",
+    "libretranslate",
+    "nodejs",
+    "multilingual",
+    "api",
+    "free"
+  ],
+  "author": "rewonsh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rewonsh/phrasesync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rewonsh/phrasesync/issues"
+  },
+  "homepage": "https://github.com/rewonsh/phrasesync#readme",
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
+} 
